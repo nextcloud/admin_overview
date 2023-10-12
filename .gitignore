@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: Ferdinand Thiessen <rpm@fthiessen.de>
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# IDE stuff
+.idea
+*.iml
+
+# dependency stuff
+/vendor/
+node_modules/
+
+# built files (do not clutter the repo but build them freshly)
+js/
+
+# temporary files
+/.php_cs.cache
+js/*hot-update.*

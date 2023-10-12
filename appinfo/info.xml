@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+	SPDX-FileCopyrightText: 2023 Nextcloud GmbH <https://nextcloud.com/>
+	SPDX-License-Identifier: CC0-1.0
+-->
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>admin_overview</id>
+	<name>Admin overview</name>
+	<summary>Enhanced insights in your Nextcloud server</summary>
+	<description><![CDATA[# Admin overview 🔮
+Enhanced insights in your Nextcloud server!]]></description>
+	<version>0.0.1</version>
+	<licence>agpl</licence>
+	<author>Côme Chilliet</author>
+	<author>Ferdinand Thiessen</author>
+	<namespace>AdminOverview</namespace>
+	<category>organization</category>
+	<bugs>https://github.com/nextcloud/admin_overview/issues</bugs>
+	<dependencies>
+		<nextcloud min-version="28" max-version="28"/>
+	</dependencies>
+</info>
