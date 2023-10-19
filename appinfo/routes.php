@@ -8,4 +8,7 @@ declare(strict_types=1);
 return [
 	'routes' => [
 	],
+	'ocs' => [
+		['name' => 'ClientDiagnostics#update', 'url' => '/diagnostics', 'verb' => 'PUT' ],
+	],
 ];
