@@ -7,7 +7,7 @@ declare(strict_types=1);
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-namespace OCA\AdminOverview\Migrations;
+namespace OCA\AdminOverview\Migration;
 
 use Closure;
 use OCA\AdminOverview\Db\ClientDiagnosticMapper;
@@ -19,7 +19,7 @@ use OCP\Migration\SimpleMigrationStep;
 /**
  * Introduce client_diagnostics table
  */
-class Version28000Date20231002171502 extends SimpleMigrationStep {
+class Version00001Date20231002171502 extends SimpleMigrationStep {
 	/**
 	 * @param Closure $schemaClosure The `\Closure` returns a `ISchemaWrapper`
 	 */
