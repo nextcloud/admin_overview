@@ -16,8 +16,8 @@
     "watch": "vite --mode development build --watch",
     "lint": "eslint --ext .js,.ts,.vue src",
     "lint:fix": "eslint --ext .js,.ts,.vue src --fix",
-    "stylelint": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue",
-    "stylelint:fix": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue --fix"
+    "stylelint": "stylelint css src",
+    "stylelint:fix": "stylelint css src --fix"
   },
   "dependencies": {
     "@nextcloud/l10n": "^2.2.0",
