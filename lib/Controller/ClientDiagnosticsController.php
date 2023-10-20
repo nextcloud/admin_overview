@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace OCA\AdminOverview\Controller;
 
+use OC\Authentication\Exceptions\InvalidTokenException;
+use OC\Authentication\Token\IProvider;
 use OCA\AdminOverview\Db\ClientDiagnostic;
 use OCA\AdminOverview\Db\ClientDiagnosticMapper;
 use OCP\AppFramework\Db\DoesNotExistException;
@@ -19,8 +21,6 @@ use OCP\IRequest;
 use OCP\ISession;
 use OCP\IUserSession;
 use OCP\Session\Exceptions\SessionNotAvailableException;
-use OC\Authentication\Exceptions\InvalidTokenException;
-use OC\Authentication\Token\IProvider;
 use Psr\Clock\ClockInterface;
 
 class ClientDiagnosticsController extends OCSController {

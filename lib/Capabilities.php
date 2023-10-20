@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * SPDX-FileCopyrightText: 2023 Côme Chilliet <come.chilliet@nextcloud.com>
