@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: Nextcloud contributors
+# SPDX-License-Identifier: AGPL-3.0-or-later
+name: OpenAPI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  openapi:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up php
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: xml
+          coverage: none
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Composer install
+        run: composer i
+
+      - name: OpenAPI checker
+        run: |
+          composer exec generate-spec
+          if [ -n "$(git status --porcelain openapi.json)" ]; then
+            git diff
+            exit 1
+          fi

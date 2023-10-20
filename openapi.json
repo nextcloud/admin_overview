@@ -1,0 +1,256 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "admin_overview",
+        "version": "0.0.1",
+        "description": "Enhanced insights in your Nextcloud server",
+        "license": {
+            "name": "agpl"
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "basic_auth": {
+                "type": "http",
+                "scheme": "basic"
+            },
+            "bearer_auth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        },
+        "schemas": {
+            "Capabilities": {
+                "type": "object",
+                "required": [
+                    "admin_overview"
+                ],
+                "properties": {
+                    "admin_overview": {
+                        "type": "object",
+                        "required": [
+                            "diagnostics"
+                        ],
+                        "properties": {
+                            "diagnostics": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                }
+            },
+            "OCSMeta": {
+                "type": "object",
+                "required": [
+                    "status",
+                    "statuscode"
+                ],
+                "properties": {
+                    "status": {
+                        "type": "string"
+                    },
+                    "statuscode": {
+                        "type": "integer"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "totalitems": {
+                        "type": "string"
+                    },
+                    "itemsperpage": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Problems": {
+                "type": "object",
+                "required": [
+                    "conflict",
+                    "failed-upload"
+                ],
+                "properties": {
+                    "conflict": {
+                        "type": "object",
+                        "required": [
+                            "count",
+                            "oldest"
+                        ],
+                        "properties": {
+                            "count": {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            "oldest": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        }
+                    },
+                    "failed-upload": {
+                        "type": "object",
+                        "required": [
+                            "count",
+                            "oldest"
+                        ],
+                        "properties": {
+                            "count": {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            "oldest": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/ocs/v2.php/apps/admin_overview/diagnostics": {
+            "put": {
+                "operationId": "client_diagnostics-update",
+                "summary": "Update a client diagnostic listing problems encountered by the client",
+                "tags": [
+                    "client_diagnostics"
+                ],
+                "security": [
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "problems",
+                        "in": "query",
+                        "description": "Problems to report for this client",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "OCS-APIRequest",
+                        "in": "header",
+                        "description": "Required to be true for the API request to pass",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Diagnostic was correctly updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Token is invalid or user is impersonated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Session was not correctly setup",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "data"
+                                                    ],
+                                                    "properties": {
+                                                        "data": {
+                                                            "type": "object",
+                                                            "required": [
+                                                                "message"
+                                                            ],
+                                                            "properties": {
+                                                                "message": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": []
+}

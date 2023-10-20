@@ -13,6 +13,7 @@ use OC\Authentication\Exceptions\InvalidTokenException;
 use OC\Authentication\Token\IProvider;
 use OCA\AdminOverview\Db\ClientDiagnostic;
 use OCA\AdminOverview\Db\ClientDiagnosticMapper;
+use OCA\AdminOverview\ResponseDefinitions;
 use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
@@ -25,6 +26,9 @@ use OCP\IUserSession;
 use OCP\Session\Exceptions\SessionNotAvailableException;
 use Psr\Clock\ClockInterface;
 
+/**
+ * @psalm-import-type AdminOverviewProblems from ResponseDefinitions
+ */
 class ClientDiagnosticsController extends OCSController {
 	public function __construct(
 		string $appName,
@@ -38,13 +42,23 @@ class ClientDiagnosticsController extends OCSController {
 		parent::__construct($appName, $request);
 	}
 
+	/**
+	 * @param AdminOverviewProblems $problems Problems to report for this client
+	 * @return DataResponse<Http::STATUS_OK, array<empty>, array{}>|DataResponse<Http::STATUS_METHOD_NOT_ALLOWED, array<empty>, array{}>|DataResponse<Http::STATUS_INTERNAL_SERVER_ERROR, array{data: array{message: string}}, array{}>
+	 *
+	 * Update a client diagnostic listing problems encountered by the client
+	 *
+	 * 200: Diagnostic was correctly updated
+	 * 405: Token is invalid or user is impersonated
+	 * 500: Session was not correctly setup
+	 */
 	#[NoAdminRequired]
 	#[NoCSRFRequired]
 	public function update(array $problems): DataResponse {
 		try {
 			$sessionId = $this->session->getId();
 		} catch (SessionNotAvailableException $e) {
-			return new DataResponse(['message' => $e->getMessage()], Http::STATUS_SERVICE_UNAVAILABLE);
+			return new DataResponse(['message' => $e->getMessage()], Http::STATUS_INTERNAL_SERVER_ERROR);
 		}
 		if ($this->userSession->getImpersonatingUserID() !== null) {
 			return new DataResponse([], Http::STATUS_METHOD_NOT_ALLOWED);
