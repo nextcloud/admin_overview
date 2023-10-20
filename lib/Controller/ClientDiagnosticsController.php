@@ -15,6 +15,8 @@ use OCA\AdminOverview\Db\ClientDiagnostic;
 use OCA\AdminOverview\Db\ClientDiagnosticMapper;
 use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\AppFramework\Http;
+use OCP\AppFramework\Http\Attribute\NoAdminRequired;
+use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\OCSController;
 use OCP\IRequest;
@@ -37,7 +39,6 @@ class ClientDiagnosticsController extends OCSController {
 	}
 
 	#[NoAdminRequired]
-	#[NoSubAdminRequired]
 	#[NoCSRFRequired]
 	public function update(array $problems): DataResponse {
 		try {
