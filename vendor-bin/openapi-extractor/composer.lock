@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed3d2e9a9ffd1704ee84fea84debe5f1",
+    "content-hash": "4610ce9186d2900b4d67c32cbc07ff25",
     "packages": [],
     "packages-dev": [
         {
@@ -83,12 +83,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextcloud/openapi-extractor.git",
-                "reference": "aef9a921bebdcdc42b110a51bfb1e2ca281c307a"
+                "reference": "c0c80648c1d7ede03537460dfbc472ff7146f294"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextcloud/openapi-extractor/zipball/aef9a921bebdcdc42b110a51bfb1e2ca281c307a",
-                "reference": "aef9a921bebdcdc42b110a51bfb1e2ca281c307a",
+                "url": "https://api.github.com/repos/nextcloud/openapi-extractor/zipball/c0c80648c1d7ede03537460dfbc472ff7146f294",
+                "reference": "c0c80648c1d7ede03537460dfbc472ff7146f294",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
                 "source": "https://github.com/nextcloud/openapi-extractor/tree/main",
                 "issues": "https://github.com/nextcloud/openapi-extractor/issues"
             },
-            "time": "2023-10-06T05:18:46+00:00"
+            "time": "2023-10-22T11:00:21+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -228,5 +228,8 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
+    "platform-overrides": {
+        "php": "8.1"
+    },
     "plugin-api-version": "2.6.0"
 }
