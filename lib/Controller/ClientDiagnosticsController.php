@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace OCA\AdminOverview\Controller;
 
-use OC\Authentication\Exceptions\InvalidTokenException;
-use OC\Authentication\Token\IProvider;
 use OCA\AdminOverview\Db\ClientDiagnostic;
 use OCA\AdminOverview\Db\ClientDiagnosticMapper;
 use OCA\AdminOverview\ResponseDefinitions;
@@ -20,6 +18,8 @@ use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\OCSController;
+use OCP\Authentication\Exceptions\InvalidTokenException;
+use OCP\Authentication\Token\IProvider;
 use OCP\IRequest;
 use OCP\ISession;
 use OCP\IUserSession;
