@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /**
  * SPDX-FileCopyrightText: 2023 Côme Chilliet <come.chilliet@nextcloud.com>
  * SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <opensource@fthiessen.de>
@@ -10,6 +11,7 @@ declare(strict_types=1);
 namespace OCA\AdminOverview\AppInfo;
 
 use OCA\AdminOverview\Capabilities;
+use OCA\AdminOverview\SetupChecks\ClientDiagnostics;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
@@ -30,6 +32,10 @@ class Application extends App implements IBootstrap {
 		 * Register capabilities
 		 */
 		$context->registerCapability(Capabilities::class);
+		/*
+		 * Register setup check
+		 */
+		$context->registerSetupCheck(ClientDiagnostics::class);
 	}
 
 	/**
