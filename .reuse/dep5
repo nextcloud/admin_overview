@@ -1,10 +1,10 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Admin overview
 Upstream-Contact: Ferdinand Thiessen <opensource@fthiessen.de>
-Source: https://github.com/nextcloud/profiler
+Source: https://github.com/nextcloud/admin_overview
 
-Files: README.md package-lock.json package.json composer.json composer.lock
-Copyright: Ferdinand Thiessen <opensource@fthiessen.de>
+Files: README.md package-lock.json package.json composer.json composer.lock openapi.json
+Copyright: Nextcloud contributors <https://www.nextcloud.com>
 License: AGPL-3.0-or-later
 
 Files: l10n/*.js l10n/*.json
