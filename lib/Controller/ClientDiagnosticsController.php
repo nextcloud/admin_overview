@@ -44,7 +44,7 @@ class ClientDiagnosticsController extends OCSController {
 
 	/**
 	 * @param AdminOverviewProblems $problems Problems to report for this client
-	 * @return DataResponse<Http::STATUS_OK, array<empty>, array{}>|DataResponse<Http::STATUS_METHOD_NOT_ALLOWED, array<empty>, array{}>|DataResponse<Http::STATUS_INTERNAL_SERVER_ERROR, array{data: array{message: string}}, array{}>
+	 * @return DataResponse<Http::STATUS_OK, array<empty>, array{}>|DataResponse<Http::STATUS_METHOD_NOT_ALLOWED, array<empty>, array{}>|DataResponse<Http::STATUS_INTERNAL_SERVER_ERROR, array{message: string}, array{}>
 	 *
 	 * Update a client diagnostic listing problems encountered by the client
 	 *
