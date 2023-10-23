@@ -3,7 +3,7 @@ Upstream-Name: Admin overview
 Upstream-Contact: Ferdinand Thiessen <opensource@fthiessen.de>
 Source: https://github.com/nextcloud/admin_overview
 
-Files: README.md package-lock.json package.json composer.json composer.lock openapi.json
+Files: README.md package-lock.json package.json composer.json composer.lock openapi.json vendor-bin/*/composer.json vendor-bin/*/composer.lock
 Copyright: Nextcloud contributors <https://www.nextcloud.com>
 License: AGPL-3.0-or-later
 
