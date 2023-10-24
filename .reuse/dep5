@@ -3,7 +3,7 @@ Upstream-Name: Admin overview
 Upstream-Contact: Ferdinand Thiessen <opensource@fthiessen.de>
 Source: https://github.com/nextcloud/profiler
 
-Files: README.md package-lock.json package.json composer.json composer.lock
+Files: README.md package-lock.json package.json tsconfig.json composer.json composer.lock
 Copyright: Ferdinand Thiessen <opensource@fthiessen.de>
 License: AGPL-3.0-or-later
 
