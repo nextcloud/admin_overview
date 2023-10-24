@@ -41,7 +41,9 @@
   "prettier": {
     "useTabs": true,
     "semi": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "bracketSameLine": true,
+    "tabWidth": 4
   },
   "browserslist": [
     "extends @nextcloud/browserslist-config"

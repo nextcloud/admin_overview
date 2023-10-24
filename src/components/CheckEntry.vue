@@ -19,7 +19,13 @@
 
 <script setup lang="ts">
 import NcIconSvgWrapper from '@nextcloud/vue/dist/Components/NcIconSvgWrapper.js'
-import { mdiAlert, mdiCheck, mdiExclamationThick, mdiHelp, mdiInformation } from '@mdi/js'
+import {
+	mdiAlert,
+	mdiCheck,
+	mdiExclamationThick,
+	mdiHelp,
+	mdiInformation,
+} from '@mdi/js'
 import { computed, useCssModule } from 'vue'
 
 // see types.ts (Vue 3 will allow to import the type and use as prop)
@@ -39,11 +45,16 @@ const style = useCssModule()
  */
 const svgPath = computed(() => {
 	switch (props.severity) {
-	case 'success': return mdiCheck
-	case 'info': return mdiInformation
-	case 'warning': return mdiAlert
-	case 'error': return mdiExclamationThick
-	default: return mdiHelp
+	case 'success':
+		return mdiCheck
+	case 'info':
+		return mdiInformation
+	case 'warning':
+		return mdiAlert
+	case 'error':
+		return mdiExclamationThick
+	default:
+		return mdiHelp
 	}
 })
 
@@ -52,7 +63,6 @@ const svgPath = computed(() => {
  * Used to set the background color
  */
 const iconWrapperClass = computed(() => style[props.severity])
-
 </script>
 
 <style module lang="scss">
@@ -78,8 +88,8 @@ const iconWrapperClass = computed(() => style[props.severity])
 	// TODO: Allow size parameter in NcIconSvgWrapper
 	max-height: 50px;
 	max-width: 50px;
-	min-width: 50px!important;
-	min-height: 50px!important;
+	min-width: 50px !important;
+	min-height: 50px !important;
 }
 
 .success {

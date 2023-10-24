@@ -9,7 +9,7 @@
 			{{ category }}
 		</h3>
 		<ul :class="$style.list">
-			<CheckEntry v-for="entry, name of setupChecks"
+			<CheckEntry v-for="(entry, name) of setupChecks"
 				:key="name"
 				:name="name"
 				:description="entry.description"
@@ -27,7 +27,6 @@ const props = defineProps<{
 	category: string
 	setupChecks: ISetupCheckResponse
 }>()
-
 </script>
 
 <style module lang="scss">
@@ -35,7 +34,7 @@ const props = defineProps<{
 .list {
 	display: flex;
 	flex-direction: column;
-	gap:12px;
+	gap: 12px;
 	justify-content: start;
 }
 
