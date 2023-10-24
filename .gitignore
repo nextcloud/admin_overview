@@ -11,6 +11,7 @@ node_modules/
 
 # built files (do not clutter the repo but build them freshly)
 js/
+css/
 
 # temporary files
 /.php_cs.cache

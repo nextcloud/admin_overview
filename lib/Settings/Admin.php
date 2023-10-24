@@ -34,7 +34,7 @@ class Admin implements IDelegatedSettings {
 		} else {
 			// TODO: Move this to API for faster loading
 			$checks = $this->manager->runAll();
-			$this->cache->set('setupChecks', json_encode($checks));
+			$this->cache->set('setupChecks', json_encode($checks), 300); // cache for 5 minutes
 		}
 		$this->initialState->provideInitialState('setupChecks', $checks);
 
