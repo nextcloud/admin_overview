@@ -77,7 +77,7 @@ const iconWrapperClass = computed(() => style[props.severity])
 	border-radius: 50%;
 	// TODO: Allow size parameter in NcIconSvgWrapper
 	max-height: 50px;
-	min-height: 50px;
+	max-width: 50px;
 	min-width: 50px!important;
 	min-height: 50px!important;
 }

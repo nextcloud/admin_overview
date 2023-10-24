@@ -1,0 +1,6 @@
+{
+	"extends": [
+		"@nextcloud/stylelint-config",
+		"stylelint-config-css-modules"
+	]
+}

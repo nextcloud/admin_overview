@@ -16,8 +16,8 @@
     "watch": "vite --mode development build --watch",
     "lint": "eslint --ext .js,.ts,.vue src",
     "lint:fix": "eslint --ext .js,.ts,.vue src --fix",
-    "stylelint": "stylelint css src",
-    "stylelint:fix": "stylelint css src --fix"
+    "stylelint": "stylelint 'src/**/*.vue'",
+    "stylelint:fix": "stylelint src/**/*.vue --fix"
   },
   "dependencies": {
     "@mdi/js": "^7.3.67",
@@ -33,6 +33,7 @@
     "@nextcloud/vite-config": "^1.1.0",
     "@vue/tsconfig": "^0.4.0",
     "prettier": "^3.0.3",
+    "stylelint-config-css-modules": "^4.3.0",
     "typescript": "^5.2.2",
     "typescript-plugin-css-modules": "^5.0.2",
     "vite": "^4.4.11"
