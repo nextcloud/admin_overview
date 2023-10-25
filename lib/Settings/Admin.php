@@ -59,7 +59,8 @@ class Admin implements IDelegatedSettings {
 	 * E.g.: 70
 	 */
 	public function getPriority(): int {
-		return 0;
+		// We should be above all other settings but allow edge cases like AiO to override
+		return 1;
 	}
 
 	public function getName(): ?string {
