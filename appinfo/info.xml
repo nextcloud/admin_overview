@@ -20,4 +20,7 @@ Enhanced insights in your Nextcloud server!]]></description>
 	<dependencies>
 		<nextcloud min-version="28" max-version="28"/>
 	</dependencies>
+	<settings>
+		<admin>OCA\AdminOverview\Settings\Admin</admin>
+	</settings>
 </info>
